@@ -10,6 +10,10 @@
 #  way the variables(or weights) will start to change in the way that loss is minimized iteratively. We save the variables(weights) by saving 
 #  the whole computing graph and we will later load it in the future in order to use these variables(weights) and the computing graph again.
 
+#  Note that even if the loss and optimizer is added to the graph, if we just trigger session run by just an intermediate node, since it
+#  is the dependency of that node is triggered, if the loss and optimizer is located after that node, they will not be triggered and update
+#  of weights will not be done. 
+
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
 
